@@ -54,7 +54,7 @@ const options = [
   },
 ];
 
-const Search: React.FC = () => {
+const Search = ({ onChange }: any) => {
   return (
     <div className="main-container">
       <div className="main-search-container">
@@ -62,9 +62,9 @@ const Search: React.FC = () => {
           <AutoComplete
               className="certain-category-search"
               dropdownClassName="certain-category-search-dropdown"
-              size="large"
               style={{ width: "100%" }}
-              options={options}
+              options={[]}
+              onChange={onChange}
           >
               <Input.Search size="large" placeholder="input here" />
           </AutoComplete>
