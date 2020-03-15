@@ -63,7 +63,7 @@ const Search: React.FC = () => {
               className="certain-category-search"
               dropdownClassName="certain-category-search-dropdown"
               size="large"
-              style={{ width: 300 }}
+              style={{ width: "100%" }}
               options={options}
           >
               <Input.Search size="large" placeholder="input here" />
