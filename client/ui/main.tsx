@@ -8,8 +8,7 @@ import * as OfflinePluginRuntime from 'offline-plugin/runtime';
 
 import { ApolloProvider } from "@apollo/react-hooks";
 import qraphqlClient from "../src/api/graphql";
-import Search from "../src/antd/Search";
-
+import Search from "../src/antd/search";
 import "./global.less"
 
 (async () => {
@@ -22,13 +21,19 @@ import "./global.less"
 
   // const store = configureStore();
 
-  const App = () => {
-    return <Search />;
+  const Root = () => {
+    return (
+      <div className="main-container">
+        <div className="main-search-container">
+          <Search />
+        </div>
+      </div>
+    )
   };
 
   ReactDOM.render(
     <ApolloProvider client={qraphqlClient}>
-      <App />
+      <Root />
     </ApolloProvider>,
     mountNode,
   );
