@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Input, AutoComplete } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css'
+import './styles.less'
 
 const renderTitle = (title: string) => {
   return (
@@ -57,14 +58,17 @@ const Search: React.FC = () => {
   return (
     <div className="main-container">
       <div className="main-search-container">
-        <AutoComplete
-            dropdownClassName="certain-category-search-dropdown"
-            dropdownMatchSelectWidth={500}
-            style={{ width: 250 }}
-            options={options}
-        >
-            <Input.Search size="large" placeholder="input here" />
-        </AutoComplete>
+        <div className="certain-category-search-wrapper">
+          <AutoComplete
+              className="certain-category-search"
+              dropdownClassName="certain-category-search-dropdown"
+              size="large"
+              style={{ width: 300 }}
+              options={options}
+          >
+              <Input.Search size="large" placeholder="input here" />
+          </AutoComplete>
+        </div>
       </div>
     </div>
   );

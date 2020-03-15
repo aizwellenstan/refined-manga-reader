@@ -1,4 +1,4 @@
-// import { ApolloServer, gql } from 'apollo-server-express';
+import { promises as fs } from 'fs';
 import * as express from 'express';
 import * as cors from 'cors';
 import { APP_PORT } from './config';
@@ -6,10 +6,26 @@ import console = require('console');
 import { routes } from './routes';
 import * as path from 'path';
 import { dataSources } from './datasources';
+import { ApolloServer, gql } from 'apollo-server-express';
+import resolvers from "./src/graphql/resolvers"
+import { MangaCron } from './src/cron/manga';
+
+const schema = require.resolve('../schema');
 
 (async () => {
   const staticDir = path.resolve(__dirname, '../static');
   const publicDir = path.resolve(__dirname, '../public');
+
+  const typeDefs = await fs.readFile(schema, 'utf-8').then(gql);
+
+  // Crons
+  new MangaCron();
+
+  // Apollo
+  const apollo = new ApolloServer({
+    typeDefs,
+    resolvers,
+  });
 
   // Express
   const app = express()
@@ -17,6 +33,7 @@ import { dataSources } from './datasources';
     .use('/static', express.static(staticDir))
     .use(express.static(publicDir))
     .use(dataSources)
+    .use(apollo.getMiddleware({ path: '/graphql' }))
     .use(routes);
 
   app.listen(process.env.PORT || { port: APP_PORT }, () => {
