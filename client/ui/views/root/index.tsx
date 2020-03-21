@@ -11,6 +11,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import Home from 'client/src/home';
 import { Manga } from 'client/src/manga';
+import { MangaChapter } from 'client/src/manga-chapter';
 
 // const locale = getLocale();
 
@@ -53,6 +54,10 @@ export const Root = () => {
       </I18nextProvider> */}
       <div className="main-container">
         <Switch>
+        <Route 
+            component={MangaChapter} 
+            path="/:mangaId([a-z0-9]{24})-:mangaName([a-z0-9-]+)/:chapterId([a-z0-9]{24})" 
+          />
           <Route 
             component={Manga} 
             path="/:mangaId([a-z0-9]{24})-:mangaName([a-z0-9-]+)" 

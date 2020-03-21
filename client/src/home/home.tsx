@@ -29,12 +29,6 @@ const STATUS_TO_COLOR :any= {
     SUSPEND: ""
 }
 
-const sanitiseTitle = (title :any) => 
-    title
-    .toLowerCase()
-    .replace(/[^a-z0-9]/g, "-")
-    .replace(/-{2,}/g, "-");
-
 const Home = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [selectedManga, setSelectedManga] = useState(null);
@@ -60,123 +54,30 @@ const Home = () => {
                     key={manga.id}
                     value={manga.title}
                 >
-                <span
-                    className="home-search-option"
-                    onClick={() => {setSelectedManga(manga)}}
-                >
-                    <Tooltip  
-                        mouseEnterDelay={0.5}
-                        placement="topLeft"
-                        title={manga.title}
+                    <span
+                        className="home-search-option"
+                        onClick={() => {setSelectedManga(manga)}}
                     >
-                        <div className="home-search-option-title">
-                            {manga.title}
-                        </div>
-                    </Tooltip>
-                
-                    <Tag 
-                        className="home-search-option-status"
-                        color={STATUS_TO_COLOR[manga.status]}
-                    >
-                        {manga.status}
-                    </Tag>
-                </span>
-            </AutoComplete.Option>
-                    ))
-
-    // const renderTitle = (manga :any) => {
-    //     return (
-    //         <>
-    //     <AutoComplete.Option
-    //         className="home-search-option"
-    //         key={manga.id}
-    //         onClick={()=>alert(manga.title)}
-    //         value={manga.title}
-    //         style={{ width: 200 }}
-    //     >
-
-    //        {/* <Link
-    //          className="home-search-option"
-    //          to={`${manga.id}-${sanitiseTitle(manga.title)}`}
-    //        > */}
-    //     <span
-    //         className="home-search-option"
-    //         onClick={() => {setSelectedManga(manga)}}
-    //       >
-    //         <Tooltip  
-    //             mouseEnterDelay={0.5}
-    //             placement="topLeft"
-    //             title={manga.title}
-    //         >
-    //             <div className="home-search-option-title">
-    //                 {manga.title}
-    //             </div>
-    //         </Tooltip>
-            
-    //         <Tag 
-    //             className="home-search-option-status"
-    //             color={STATUS_TO_COLOR[manga.status]}
-    //         >
-    //             {manga.status}
-    //         </Tag>
-    //         </span>
-    //        {/* </Link> */}
-    //     </AutoComplete.Option>
-    //     </>
-    //     );
-    //   };
-      
-    //   const renderItem = (title: string, count: number) => {
-    //     return {
-    //       value: title,
-    //       label: (
-    //         <div
-    //           style={{
-    //             display: 'flex',
-    //             justifyContent: 'space-between',
-    //           }}
-    //         >
-    //           {title}
-    //         </div>
-    //       ),
-    //     };
-    //   };
-
-    // const dataSource = [
-    //     {
-    //       label: renderTitle('Libraries'),
-    //       options: [renderItem('AntDesign', 10000), renderItem('AntDesign UI', 10600)],
-    //     },
-    //     {
-    //       label: renderTitle('Solutions'),
-    //       options: [renderItem('AntDesign UI FAQ', 60100), renderItem('AntDesign FAQ', 30010)],
-    //     },
-    //     {
-    //       label: renderTitle('Articles'),
-    //       options: [renderItem('AntDesign design language', 100000)],
-    //     },
-    // ];
-
-    // const dataSource = 
-    //     !loading &&
-    //     data &&
-    //     data.mangas && 
-    //     data.mangas.map(
-    //         (manga :any) => (
-
-    //                     {
-    //                         label: renderTitle(manga)
-    //                     }
-    //                     // <Option 
-    //                     //     key={manga.id}
-    //                     //     value={manga.title}
-    //                     // >
-    //                     //     {manga.title}
-    //                     //     <span className="certain-search-item-count">
-    //                     //         {manga.status}
-    //                     //     </span>
-    //                     // </Option>
-    //                 ))
+                        <Tooltip  
+                            mouseEnterDelay={0.5}
+                            placement="topLeft"
+                            title={manga.title}
+                        >
+                            <div className="home-search-option-title">
+                                {manga.title}
+                            </div>
+                        </Tooltip>
+                    
+                        <Tag 
+                            className="home-search-option-status"
+                            color={STATUS_TO_COLOR[manga.status]}
+                        >
+                            {manga.status}
+                        </Tag>
+                    </span>
+                </AutoComplete.Option>
+            )
+        )
 
     return (
         <div className="main-search-container">
@@ -186,11 +87,11 @@ const Home = () => {
             />
             {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
             {selectedManga && (
-                // <MangaDetails manga={selectedManga} />
+                <MangaDetails manga={selectedManga} />
                 // <pre>{JSON.stringify(selectedManga, null, 2)}</pre>
-                <div>
-                    <img src={selectedManga.image} />
-                </div>
+                // <div>
+                //     <img src={selectedManga.image} />
+                // </div>
             )}
         </div>
     )
