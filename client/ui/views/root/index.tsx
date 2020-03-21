@@ -1,7 +1,7 @@
 import * as React from 'react';
 // import { ThemeProvider, styled } from 'client/ui/styles';
 // import { I18nextProvider } from 'react-i18next';
-import { Switch, Redirect, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 // import NoSSR from 'react-no-ssr';
 // import { getLocale } from 'client/ui/locales';
 // import { theme } from 'client/ui/styles/theme';
@@ -9,7 +9,8 @@ import { Switch, Redirect, Route } from 'react-router-dom';
 // import { Banner } from 'client/ui/components/banner';
 // import { GlobalStyle } from './global-style';
 
-import { Home } from 'client/ui/views/home';
+import Home from 'client/src/home';
+import { Manga } from 'client/src/manga';
 
 // const locale = getLocale();
 
@@ -52,6 +53,10 @@ export const Root = () => {
       </I18nextProvider> */}
       <div className="main-container">
         <Switch>
+          <Route 
+            component={Manga} 
+            path="/:mangaId([a-z0-9]{24})-:mangaName([a-z0-9-]+)" 
+          />
           <Route component={Home} path="/" />
         </Switch>
       </div>

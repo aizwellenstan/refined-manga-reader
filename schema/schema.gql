@@ -8,9 +8,16 @@ scalar Date
 
 type Chapter {
     id: ID!
+    images: [ChapterImage!]!
     lastUpdated: Date!
     number: Int!
     title: String
+}
+
+type ChapterImage {
+    height: Int!
+    url: String!
+    width: Int!
 }
 
 type Manga {
@@ -24,6 +31,7 @@ type Manga {
 
 type MangaInfo {
     chapters: [Chapter!]!
+    description: String!
     id: ID!
 }
 

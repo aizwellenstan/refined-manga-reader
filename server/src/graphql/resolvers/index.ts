@@ -1,7 +1,7 @@
 // import { GraphQLScalarType } from 'graphql';
-
-import Manga from "./Manga";
-import * as Query from "./query";
+import Chapter from './Chapter'
+import Manga from './Manga';
+import * as Query from './query';
 
 const resolvers = {
     // Date: new GraphQLScalarType({
@@ -11,6 +11,7 @@ const resolvers = {
     //         return date.toISOString()
     //     }
     // }),
+    Chapter,
     MangaStatus: {
         COMPLETED: 2,
         ONGOING: 1,

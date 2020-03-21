@@ -1,63 +1,40 @@
 import * as React from 'react';
 import { Input, AutoComplete } from 'antd';
-// import { UserOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css'
 import './styles.less'
 
-// const renderTitle = (title: string) => {
-//   return (
-//     <span>
-//       {title}
-//       <a
-//         style={{ float: 'right' }}
-//         href="https://www.google.com/search?q=antd"
-//         target="_blank"
-//         rel="noopener noreferrer"
-//       >
-//         more
-//       </a>
-//     </span>
-//   );
-// };
-
-// const renderItem = (title: string, count: number) => {
-//   return {
-//     value: title,
-//     label: (
-//       <div
-//         style={{
-//           display: 'flex',
-//           justifyContent: 'space-between',
-//         }}
-//       >
-//         {title}
-//         <span>
-//           <UserOutlined /> {count}
-//         </span>
-//       </div>
-//     ),
-//   };
-// };
-
-
-
 const Search = ({ dataSource, onChange }: any) => {
   return (
-    <div className="main-container">
-      <div className="main-search-container">
-        <div className="certain-category-search-wrapper">
-          <AutoComplete
-              className="certain-category-search"
-              dropdownClassName="certain-category-search-dropdown"
-              style={{ width: "100%" }}
-              options={dataSource}
-              onChange={onChange}
-          >
-              <Input.Search size="large" placeholder="input here" />
-          </AutoComplete>
-        </div>
-      </div>
+    <div className= "certain-category-search-wrapper">
+      <AutoComplete
+        className="certain-category-search"
+        dataSource={dataSource}
+        dropdownClassName="certain-category-search-dropdown"
+        // dropdownMatchSelectWidth={false}
+        dropdownStyle={{width:300}}
+        onChange={onChange}
+        // optionLabelProp="value"
+        size="large"
+        style={{width: "100%"}}
+      >
+        <Input.Search size="large" placeholder="input here" />
+      </AutoComplete>
     </div>
+    // <div className="main-container">
+    //   <div className="main-search-container">
+    //     <div className="certain-category-search-wrapper">
+    //       <AutoComplete
+    //           className="certain-category-search"
+    //           dropdownClassName="certain-category-search-dropdown"
+    //           style={{ width: "100%" }}
+    //           options={dataSource}
+    //           onChange={onChange}
+    //       >
+    //           <Input.Search size="large" placeholder="input here" />
+    //       </AutoComplete>
+    //     </div>
+    //   </div>
+    // </div>
   );
 };
 
