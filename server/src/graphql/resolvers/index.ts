@@ -11,6 +11,11 @@ const resolvers = {
     //         return date.toISOString()
     //     }
     // }),
+    MangaStatus: {
+        COMPLETED: 2,
+        ONGOING: 1,
+        SUSPENDED: 0
+    },
     Manga,
     Query
 };

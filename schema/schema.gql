@@ -1,3 +1,9 @@
+enum MangaStatus {
+    COMPLETED
+    ONGOING
+    SUSPENDED
+}
+
 scalar Date
 
 type Chapter {
@@ -12,6 +18,7 @@ type Manga {
     info: MangaInfo!
     image: String
     lastUpdated: Date!
+    status: MangaStatus
     title: String!
 }
 
