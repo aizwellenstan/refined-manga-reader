@@ -45,11 +45,12 @@ const MangaDetails = ({ manga } :any) => {
                 <List
                     size="small"
                     bordered
-                    dataSource={[...data.manga.info.chapters].reverse()}
+                    dataSource={data.manga.info.chapters}
                     renderItem={(chapter, index) => (
                         <List.Item>
-                            <Link to={`${manga.id}-${sanitiseTitle(manga.title)}/${chapter.id}`}>
-                                #{String(
+                            <Link to={`/${manga.id}-${sanitiseTitle(manga.title)}/${chapter.id}`}>
+                                #
+                                {String(
                                     data.manga.info.chapters.length - index
                                 ).padStart(
                                     data.manga.info.chapters.length.toString()
