@@ -23,9 +23,28 @@ export class MangaCron {
   private collectMangas = async () => {
     const res = await fetchAllMangas();
     const mangas = res.data.manga;
-
+ 
     console.log(mangas)
-    await Manga.insertMany(mangas);
+    
+    const insertOrUpdate = async (items: any) => {
+      try {
+          const promises = [];
+          for (let itemIndex = 0; itemIndex < items.length; itemIndex++) {
+              const item = items[itemIndex];
+              const updatePromise = Manga.updateOne({ _id: item._id }, item, { upsert: true });
+              promises.push(updatePromise);
+          }
+          await Promise.all(promises);
+          console.log('done...');
+          return true;
+      } catch (err) {
+          console.log(err);
+          return false;
+      }
+  }
+  await insertOrUpdate(mangas)
+    // await Manga.updateMany({},mangas,{ upsert: true });
+    // await Manga.insertMany(mangas)
     console.log("seeded")
   };
 
