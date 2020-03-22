@@ -38,7 +38,7 @@ const MangaDetails = ({ manga } :any) => {
     );
 
     return(
-        <div className="manga-details-wrap">
+        <div className="manga-details-wrapper">
             <img 
                 className="manga-details-image" 
                 referrerPolicy="no-referrer"
