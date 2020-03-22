@@ -9,6 +9,8 @@ html,
 body {
     margin: 0;
     padding: 0;
+    background: #08090d url(/body.jpg) no-repeat center 0;;
+    background-attachment: fixed;
 }
 .main-container {
     display: flex;
@@ -64,12 +66,17 @@ body {
     }
 
     > .manga-details-info {
+        background-color: white;
         flex: 1;
         margin-left: 1rem;
         font-size: 0.9rem;
 
         > p {
-            text-align: justify;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
         }
 
         .ant-list-item {
