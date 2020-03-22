@@ -12,6 +12,7 @@ import { Switch, Route } from 'react-router-dom';
 import Home from 'client/src/home';
 import { Manga } from 'client/src/manga';
 import { MangaChapter } from 'client/src/manga-chapter';
+// import { Provider as FavoritedMangaProvider }from 'client/src/contexts/favorited-manga-context';
 
 // const locale = getLocale();
 
@@ -52,6 +53,7 @@ export const Root = () => {
           </NoSSR>
         </ThemeProvider>
       </I18nextProvider> */}
+      {/* <FavoritedMangaProvider> */}
       <div className="main-container">
         <Switch>
         <Route 
@@ -65,6 +67,7 @@ export const Root = () => {
           <Route component={Home} path="/" />
         </Switch>
       </div>
+      {/* </FavoritedMangaProvider> */}
     </>
   );
 };

@@ -31,7 +31,11 @@ const MangaDetails = ({ manga } :any) => {
         variables: { mangaId: manga.id }
     });
 
-    if (loading) return <Spin />;
+    if (loading) return (
+        <div className="manga-details-spinner">
+            <Spin />
+        </div>
+    );
 
     return(
         <div className="manga-details-wrap">
@@ -46,7 +50,7 @@ const MangaDetails = ({ manga } :any) => {
                     size="small"
                     bordered
                     dataSource={data.manga.info.chapters}
-                    renderItem={(chapter, index) => (
+                    renderItem={(chapter :any, index) => (
                         <List.Item>
                             <Link to={`/${manga.id}-${sanitiseTitle(manga.title)}/${chapter.id}`}>
                                 #

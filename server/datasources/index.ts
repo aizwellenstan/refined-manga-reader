@@ -10,4 +10,9 @@ router.use('/api', (req, res) => {
   req.pipe(request(boundPath)).pipe(res);
 });
 
+router.use('/mangasimg', (req, res) => {
+  const boundPath = `${"https://cdn.mangaeden.com/mangasimg"}${req.path}`;
+  req.pipe(request(boundPath)).pipe(res);
+});
+
 export const dataSources = router;

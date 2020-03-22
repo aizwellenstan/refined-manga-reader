@@ -3,11 +3,12 @@ import { useQuery } from '@apollo/react-hooks';
 import { Tag, Tooltip, AutoComplete } from 'antd';
 import gql from 'graphql-tag';
 import _ from "lodash";
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 // import graphqlClient from "../../../src/api/graphql";
 import Search from '../antd/search';
 import MangaDetails from './manga-details';
+// import FavoriteButton from './favorite-button';
 
 const query = gql`
     query($searchTitle: String!) {
@@ -74,10 +75,10 @@ const Home = () => {
                         >
                             {manga.status}
                         </Tag>
+                        {/* <FavoriteButton manga={manga} /> */}
                     </span>
                 </AutoComplete.Option>
-            )
-        )
+            ));
 
     return (
         <div className="main-search-container">

@@ -34,7 +34,7 @@ export const MangaChapter = ({
                     (image :any, index :any) => (
                         <div key={index}>
                             <img 
-                                src={image.url} 
+                                src={image.url.replace("https://cdn.mangaeden.com/mangasimg", "/mangasimg")} 
                                 referrerPolicy="no-referrer"
                             />
                         </div>

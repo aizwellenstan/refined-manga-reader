@@ -6,10 +6,10 @@ import { Root } from './views/root';
 import { BrowserRouter } from 'react-router-dom';
 import * as OfflinePluginRuntime from 'offline-plugin/runtime';
 
-import { ApolloProvider } from "@apollo/react-hooks";
+import { ApolloProvider } from '@apollo/react-hooks';
 
-import client from "../src/api/graphql";
-import "./global.less"
+import client from '../src/api/graphql';
+import './global.less'
 
 (async () => {
   if (process.env.NODE_ENV === 'production') {
